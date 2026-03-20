@@ -1,14 +1,15 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "AI Event Concierge Backend API",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "cd ../client && npm install && npm run build"
   },
-  "keywords": [],
+  "keywords": ["ai", "event", "concierge", "nodejs", "express"],
   "author": "",
   "license": "ISC",
   "type": "commonjs",

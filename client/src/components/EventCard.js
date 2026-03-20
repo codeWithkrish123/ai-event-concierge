@@ -1,10 +1,14 @@
 function EventCard({ data }) {
   return (
-    <div className="card">
-      <h2>{data.venue_name}</h2>
-      <p>{data.location}</p>
-      <p>{data.estimated_cost}</p>
-      <p>{data.why_it_fits}</p>
+    <div className="card" style={{ 
+      padding: "20px", 
+      border: "1px solid #ddd", 
+      borderRadius: "8px", 
+      backgroundColor: "#f9f9f9",
+      whiteSpace: "pre-wrap"
+    }}>
+      <h3>🎯 Your Generated Plan</h3>
+      <p>{data}</p>
     </div>
   );
 }

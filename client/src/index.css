@@ -1,10 +1,12 @@
+/* index.css - Minimal base styles for Claude interface */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Remove fixed background to allow theme toggle */
+  background: transparent;
 }
 
 code {
@@ -12,31 +14,15 @@ code {
     monospace;
 }
 
+/* Remove conflicting styles that interfere with Claude design */
 .card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 16px 0;
-  background-color: #f9f9f9;
+  /* Card styles are handled by claude-style.css */
 }
 
 input {
-  width: 300px;
-  padding: 8px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  /* Input styles are handled by claude-style.css */
 }
 
 button {
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
+  /* Button styles are handled by claude-style.css */
 }
