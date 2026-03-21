@@ -23,10 +23,13 @@ app.use(limiter);
 
 // ✅ CORS (restrict access)
 app.use(cors({
-  origin: true,   // ✅ allow all origins dynamically
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  origin: true,
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
+
+// ✅ VERY IMPORTANT (fix preflight)
 app.options("*", cors());
 
 app.get("/", (req, res) => {
