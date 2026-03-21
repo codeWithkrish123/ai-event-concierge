@@ -5,7 +5,7 @@ const API = axios.create({
 });
 
 export const generateEvent = (prompt) =>
-  API.post("/", { prompt });
+  API.post("/api/events/generate", { prompt });
 
 export const getHistory = () =>
-  API.get("/history");
+  API.get("/api/events/history");
