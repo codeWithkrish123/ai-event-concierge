@@ -22,7 +22,8 @@ app.use(limiter);
 const allowedOrigins = [
   "http://localhost:3000",
   "https://ai-event-concierge-olive.vercel.app",
-  "https://ai-event-concierge-dqqb4wbgq-codewithkrish123s-projects.vercel.app"
+  "https://ai-event-concierge-dqqb4wbgq-codewithkrish123s-projects.vercel.app",
+  "https://ai-event-concierge-69ibdkz0k-codewithkrish123s-projects.vercel.app"
 ];
 
 const corsOptions = {
@@ -44,6 +45,11 @@ app.options("*", cors(corsOptions));
 // Routes
 app.get("/", (req, res) => {
   res.send("Server is running");
+});
+
+// Favicon endpoint to prevent 404 errors
+app.get("/favicon.ico", (req, res) => {
+  res.status(204).end();
 });
 
 app.use(express.json({ limit: "10kb" }));
