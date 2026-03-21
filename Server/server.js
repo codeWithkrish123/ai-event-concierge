@@ -4,8 +4,13 @@ const path = require("path");
 const dotenv = require("dotenv");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
+const connectDB = require("./config/db");
 
 dotenv.config({ path: path.join(__dirname, "..", ".env") });
+
+// Debug: Check if API key is loaded
+console.log("API Key loaded:", process.env.GEMINI_API_KEY ? "YES" : "NO");
+
 
 const app = express();
 
@@ -70,6 +75,19 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () =>
-  console.log(`🚀 Server running on port ${PORT}`)
-);
+// connectDB();
+
+// Connect to database and start server
+const startServer = async () => {
+  try {
+    await connectDB();
+    app.listen(PORT, () =>
+      console.log(`🚀 Server running on port ${PORT}`)
+    );
+  } catch (error) {
+    console.error("Failed to start server:", error);
+    process.exit(1);
+  }
+};
+
+startServer();

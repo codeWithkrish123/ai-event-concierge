@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://ai-event-concierge-ikoi.onrender.com",
+  baseURL: "http://localhost:5000, https://ai-event-concierge-ikoi.onrender.com" ,
 });
 
 export const generateEvent = (prompt) =>
