@@ -24,7 +24,10 @@ app.use(limiter);
 // ✅ CORS (restrict access)
 app.use(
   cors({
-    origin: "https://ai-event-concierge-olive.vercel.app", // ⚠️ replace this
+    origin: [
+      "https://ai-event-concierge-olive.vercel.app",
+      "https://ai-event-concierge-da658txjw-codewithkrish123s-projects.vercel.app"
+    ],
     methods: ["GET", "POST"],
     credentials: true,
   })
