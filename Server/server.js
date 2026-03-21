@@ -22,12 +22,17 @@ const limiter = rateLimit({
 app.use(limiter);
 
 // ✅ CORS (restrict access)
-app.use(cors({
+// ✅ define config ONCE
+const corsOptions = {
   origin: true,
-  methods: ["GET", "POST", "OPTIONS"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
-}));
+};
+
+// ✅ use same config everywhere
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 // ✅ VERY IMPORTANT (fix preflight)
 app.options("*", cors());
