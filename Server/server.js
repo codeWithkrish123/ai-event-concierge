@@ -23,19 +23,30 @@ app.use(limiter);
 
 // ✅ CORS (restrict access)
 // ✅ define config ONCE
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://ai-event-concierge-ikoi.onrender.com",
+  "https://ai-event-concierge-olive.vercel.app",
+  "https://ai-event-concierge-dqqb4wbgq-codewithkrish123s-projects.vercel.app"
+];
+
 const corsOptions = {
-  origin: true,
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 };
 
-// ✅ use same config everywhere
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
-
-// ✅ VERY IMPORTANT (fix preflight)
-app.options("*", cors());
 
 app.get("/", (req, res) => {
   res.send("Server is running");
