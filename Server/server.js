@@ -29,6 +29,9 @@ app.use(
     credentials: true,
   })
 );
+app.get("/", (req, res) => {
+  res.send("Server is running");
+});
 
 // ✅ Body parser with limit (prevent large payload attacks)
 app.use(express.json({ limit: "10kb" }));
