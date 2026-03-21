@@ -22,16 +22,27 @@ const limiter = rateLimit({
 app.use(limiter);
 
 // ✅ CORS (restrict access)
+const allowedOrigins = [
+  "https://ai-event-concierge-olive.vercel.app",
+  "https://ai-event-concierge-bzpkxmcg2-codewithkrish123s-projects.vercel.app"
+];
 app.use(
   cors({
-    origin: [
-      "https://ai-event-concierge-olive.vercel.app",
-      "https://ai-event-concierge-da658txjw-codewithkrish123s-projects.vercel.app"
-    ],
-    methods: ["GET", "POST"],
+    origin: function (origin, callback) {
+      console.log("Request Origin:", origin); // 🔍 debug
+
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        return callback(new Error("CORS not allowed"));
+      }
+    },
     credentials: true,
   })
 );
+
 app.get("/", (req, res) => {
   res.send("Server is running");
 });
