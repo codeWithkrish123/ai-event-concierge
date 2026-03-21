@@ -22,6 +22,7 @@ app.use(limiter);
 const allowedOrigins = [
   "http://localhost:3000",
   "https://ai-event-concierge-olive.vercel.app",
+  "https://ai-event-concierge-ikoi.onrender.com",
   "https://ai-event-concierge-dqqb4wbgq-codewithkrish123s-projects.vercel.app",
   "https://ai-event-concierge-69ibdkz0k-codewithkrish123s-projects.vercel.app"
 ];
