@@ -36,11 +36,8 @@ app.use(express.static(path.join(__dirname, "..", "client", "build")));
 app.use("/api/events", eventRoutes);
 
 // ✅ FIXED: React fallback route (NO '*')
-// 404 + React fallback
 app.use((req, res) => {
-  res.sendFile(
-    path.join(__dirname, "..", "client", "build", "index.html")
-  );
+  res.status(404).json({ message: "Route not found" });
 });
 // Start server
 const PORT = process.env.PORT || 5000;
