@@ -42,16 +42,3 @@ dist/
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-# Security - Sensitive files
-*.key
-*.pem
-*.p12
-*.pfx
-config/
-secrets/
-credentials/
-private/
-test-api.js
-test-gemini.js
-start-server.bat
