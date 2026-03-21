@@ -9,7 +9,13 @@
     "start": "node server.js",
     "build": "cd ../client && npm install && npm run build"
   },
-  "keywords": ["ai", "event", "concierge", "nodejs", "express"],
+  "keywords": [
+    "ai",
+    "event",
+    "concierge",
+    "nodejs",
+    "express"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
@@ -18,6 +24,8 @@
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
+    "express-rate-limit": "^8.3.1",
+    "helmet": "^8.1.0",
     "mongoose": "^9.3.1",
     "openai": "^6.32.0"
   }
