@@ -76,6 +76,17 @@ router.post('/generate', async (req, res) => {
   const { prompt } = req.body;
   const apiKey = process.env.GEMINI_API_KEY;
   
+  console.log("🔑 API Key loaded:", apiKey ? "YES" : "NO");
+  console.log("📝 Prompt received:", prompt);
+  
+  if (!prompt) {
+    return res.status(400).json({ error: "Prompt is required" });
+  }
+  
+  if (!apiKey) {
+    return res.status(500).json({ error: "API key not configured" });
+  }
+  
   // Update these names! Old 1.5/1.0 models are gone.
   const FREE_MODELS = [
     "gemini-3.1-flash-lite-preview", 
